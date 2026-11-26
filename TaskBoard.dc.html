@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Task Board</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.app{display:flex;min-height:900px;font-family:Inter,Arial,sans-serif;color:#1b2430;background:#f4f6fa;font-size:14px}
+.side{width:236px;background:#14213d;color:#d9e1f2;padding:20px 14px;box-sizing:border-box;flex-shrink:0}
+.side h2{margin:0 8px 24px;font-size:18px;color:#fff}
+.nav{display:block;padding:10px 12px;border-radius:8px;color:#d9e1f2;text-decoration:none;margin-bottom:2px}
+.nav.on{background:#2f4a8a;color:#fff;font-weight:600}
+.main{flex:1;min-width:0;padding:24px 28px}
+h1{margin:0;font-size:22px}
+.mut{color:#5a6678;font-size:12.5px}
+.bar{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap;align-items:center}
+.bar select,.bar input{padding:10px 12px;border:1px solid #c9d2e0;border-radius:8px;font:inherit;background:#fff;min-height:44px}
+.btn{background:#2f5bd8;color:#fff;border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:600;min-height:44px}
+.board{display:grid;grid-template-columns:repeat(5,minmax(210px,1fr));gap:12px;overflow-x:auto;align-items:start}
+.col{background:#e9edf5;border-radius:12px;padding:12px}
+.col h3{margin:0 0 10px;font-size:13px;display:flex;justify-content:space-between}
+.t{background:#fff;border:1px solid #e1e6ef;border-radius:10px;padding:12px;margin-bottom:10px}
+.t b{display:block;margin-bottom:6px;font-size:13.5px}
+.t .m{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.pill{font-size:11px;padding:2px 8px;border-radius:99px;font-weight:600}
+.r{background:#fbd5d5;color:#8a1c1c}.a{background:#fde7bd;color:#7a4300}.g{background:#cfeedd;color:#14532d}.b{background:#dbe6ff;color:#1c3d94}
+.av{display:inline-block;width:24px;height:24px;border-radius:50%;background:#2f4a8a;color:#fff;font-size:10px;text-align:center;line-height:24px}
+@media (max-width:900px){.side{display:none}}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+<h2>DevTrack</h2>
+<a class="nav" href="#">Dashboard</a><a class="nav" href="#">Projects</a><a class="nav on" href="#">Tasks &amp; Sprints</a><a class="nav" href="#">Timeline</a><a class="nav" href="#">Milestones &amp; Goals</a><a class="nav" href="#">Documents</a><a class="nav" href="#">Calls &amp; Recordings</a><a class="nav" href="#">Admin</a>
+</aside>
+<div class="main">
+<div class="mut">Customer Portal Revamp / Tasks</div>
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><h1>Sprint 4 Board</h1><button class="btn" type="button">+ Add task</button></div>
+<div class="bar">
+<select aria-label="Sprint"><option>Sprint 4 (16 Nov to 29 Nov)</option></select>
+<select aria-label="Assignee"><option>All assignees</option></select>
+<select aria-label="Priority"><option>All priorities</option></select>
+<input type="search" placeholder="Search tasks" aria-label="Search tasks">
+</div>
+<div class="board">
+<div class="col"><h3><span>To Do</span><span class="mut">4</span></h3>
+<div class="t"><b>Order tracking API</b><span class="pill a">Medium</span><div class="m"><span class="mut">Due 28 Nov</span><span class="av">MP</span></div></div>
+<div class="t"><b>Support ticket form</b><span class="pill b">Low</span><div class="m"><span class="mut">Due 02 Dec</span><span class="av">SJ</span></div></div>
+<div class="t"><b>Email templates</b><span class="pill b">Low</span><div class="m"><span class="mut">Due 04 Dec</span><span class="av">AK</span></div></div></div>
+<div class="col"><h3><span>In Progress</span><span class="mut">3</span></h3>
+<div class="t"><b>User profile page</b><span class="pill a">Medium</span><div class="m"><span class="mut">Due 26 Nov</span><span class="av">SJ</span></div></div>
+<div class="t"><b>Payment gateway integration</b><span class="pill r">High</span><div class="m"><span class="mut">Due 25 Nov</span><span class="av">AK</span></div></div></div>
+<div class="col"><h3><span>In Review</span><span class="mut">2</span></h3>
+<div class="t"><b>Login module</b><span class="pill r">High</span><div class="m"><span class="mut">Due 24 Nov</span><span class="av">AK</span></div></div>
+<div class="t"><b>Dashboard widgets</b><span class="pill a">Medium</span><div class="m"><span class="mut">Due 25 Nov</span><span class="av">MP</span></div></div></div>
+<div class="col"><h3><span>Testing</span><span class="mut">2</span></h3>
+<div class="t"><b>Password reset flow</b><span class="pill r">High</span><div class="m"><span class="mut">2 bugs open</span><span class="av">NV</span></div></div>
+<div class="t"><b>Search filters</b><span class="pill a">Medium</span><div class="m"><span class="mut">Retest</span><span class="av">TD</span></div></div></div>
+<div class="col"><h3><span>Done</span><span class="mut">6</span></h3>
+<div class="t"><b>Project setup and CI</b><span class="pill g">Done</span><div class="m"><span class="mut">12 Nov</span><span class="av">AK</span></div></div>
+<div class="t"><b>Sign-up screen</b><span class="pill g">Done</span><div class="m"><span class="mut">18 Nov</span><span class="av">SJ</span></div></div></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":900}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

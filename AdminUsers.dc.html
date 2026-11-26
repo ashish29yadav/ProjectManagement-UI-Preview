@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin: Users and Roles</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.app{display:flex;min-height:960px;font-family:Inter,Arial,sans-serif;color:#1b2430;background:#f4f6fa;font-size:14px}
+.side{width:236px;background:#14213d;color:#d9e1f2;padding:20px 14px;box-sizing:border-box;flex-shrink:0}
+.side h2{margin:0 8px 24px;font-size:18px;color:#fff}
+.nav{display:block;padding:10px 12px;border-radius:8px;color:#d9e1f2;text-decoration:none;margin-bottom:2px}
+.nav.on{background:#2f4a8a;color:#fff;font-weight:600}
+.lbl{margin:18px 12px 6px;font-size:11px;letter-spacing:.08em;color:#9fb0d3;text-transform:uppercase}
+.main{flex:1;min-width:0;padding:24px 28px}
+h1{margin:0;font-size:22px}
+.mut{color:#5a6678;font-size:12.5px}
+.card{background:#fff;border:1px solid #e1e6ef;border-radius:12px;padding:18px;margin-top:16px;min-width:0}
+.card h3{margin:0 0 12px;font-size:15px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{text-align:left;font-size:12px;color:#5a6678;padding:8px 6px;border-bottom:1px solid #e1e6ef}
+td{padding:10px 6px;border-bottom:1px solid #eef1f6}
+td.c,th.c{text-align:center}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:99px;font-weight:600;white-space:nowrap}
+.g{background:#cfeedd;color:#14532d}.a{background:#fde7bd;color:#7a4300}.b{background:#dbe6ff;color:#1c3d94}
+.av{display:inline-block;width:26px;height:26px;border-radius:50%;background:#2f4a8a;color:#fff;font-size:11px;text-align:center;line-height:26px;margin-right:8px}
+.btn{background:#2f5bd8;color:#fff;border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:600;min-height:44px}
+.btn2{background:#fff;color:#1b2430;border:1px solid #c9d2e0;border-radius:8px;padding:8px 12px;font:inherit;min-height:36px}
+.bar{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.bar input,.bar select{padding:10px 12px;border:1px solid #c9d2e0;border-radius:8px;font:inherit;background:#fff;min-height:44px}
+.bar input{flex:1;min-width:200px}
+@media (max-width:900px){.side{display:none}}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+<h2>DevTrack</h2>
+<a class="nav" href="#">Dashboard</a><a class="nav" href="#">Projects</a><a class="nav" href="#">Tasks &amp; Sprints</a><a class="nav" href="#">Documents</a><a class="nav" href="#">Calls &amp; Recordings</a>
+<div class="lbl">Admin</div>
+<a class="nav on" href="#">Users &amp; Roles</a><a class="nav" href="#">Stage Templates</a><a class="nav" href="#">Reports</a><a class="nav" href="#">Settings</a>
+</aside>
+<div class="main">
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+<div><h1>Users &amp; Roles</h1><div class="mut">Manage who can access DevTrack and what they can do.</div></div>
+<button class="btn" type="button">+ Invite user</button>
+</div>
+<div class="bar"><input type="search" placeholder="Search by name or email" aria-label="Search users"><select aria-label="Role"><option>All roles</option></select><select aria-label="Status"><option>All statuses</option></select></div>
+
+<div class="card"><h3>Users (24)</h3>
+<div class="tw"><table>
+<thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Projects</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody>
+<tr><td><span class="av">AD</span>Admin User</td><td>admin@company.com</td><td>Admin</td><td>All</td><td><span class="pill g">Active</span></td><td><button class="btn2" type="button">Edit</button></td></tr>
+<tr><td><span class="av">RS</span>Riya Sharma</td><td>riya@company.com</td><td>Project Manager</td><td>4</td><td><span class="pill g">Active</span></td><td><button class="btn2" type="button">Edit</button></td></tr>
+<tr><td><span class="av">AK</span>Arjun K</td><td>arjun@company.com</td><td>Developer</td><td>2</td><td><span class="pill g">Active</span></td><td><button class="btn2" type="button">Edit</button></td></tr>
+<tr><td><span class="av">NV</span>Nikhil V</td><td>nikhil@company.com</td><td>Tester</td><td>3</td><td><span class="pill g">Active</span></td><td><button class="btn2" type="button">Edit</button></td></tr>
+<tr><td><span class="av">PC</span>Pooja C</td><td>pooja@client.com</td><td>Client (view only)</td><td>1</td><td><span class="pill a">Invited</span></td><td><button class="btn2" type="button">Resend</button></td></tr>
+</tbody></table></div></div>
+
+<div class="card"><h3>Role permissions</h3>
+<div class="tw"><table>
+<thead><tr><th>Permission</th><th class="c">Admin</th><th class="c">Manager</th><th class="c">Developer</th><th class="c">Tester</th><th class="c">Client</th></tr></thead>
+<tbody>
+<tr><td>Create and delete projects</td><td class="c">Yes</td><td class="c">Create</td><td class="c">No</td><td class="c">No</td><td class="c">No</td></tr>
+<tr><td>Assign team and change stages</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">No</td><td class="c">No</td><td class="c">No</td></tr>
+<tr><td>Create and update tasks</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Own tasks</td><td class="c">Bugs</td><td class="c">No</td></tr>
+<tr><td>Upload documents</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Approve only</td></tr>
+<tr><td>View call recordings</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Yes</td><td class="c">Shared only</td></tr>
+<tr><td>Manage users, roles and settings</td><td class="c">Yes</td><td class="c">No</td><td class="c">No</td><td class="c">No</td><td class="c">No</td></tr>
+</tbody></table></div>
+<div style="margin-top:12px"><button class="btn2" type="button">Edit permissions</button> <button class="btn2" type="button">Add custom role</button></div></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":960}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

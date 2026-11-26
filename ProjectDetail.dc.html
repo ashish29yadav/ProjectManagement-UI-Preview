@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Detail</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.app{display:flex;min-height:1000px;font-family:Inter,Arial,sans-serif;color:#1b2430;background:#f4f6fa;font-size:14px}
+.side{width:236px;background:#14213d;color:#d9e1f2;padding:20px 14px;box-sizing:border-box;flex-shrink:0}
+.side h2{margin:0 8px 24px;font-size:18px;color:#fff}
+.nav{display:block;padding:10px 12px;border-radius:8px;color:#d9e1f2;text-decoration:none;margin-bottom:2px}
+.nav.on{background:#2f4a8a;color:#fff;font-weight:600}
+.main{flex:1;min-width:0;padding:24px 28px}
+h1{margin:0;font-size:22px}
+.card{background:#fff;border:1px solid #e1e6ef;border-radius:12px;padding:18px;min-width:0}
+.card h3{margin:0 0 12px;font-size:15px}
+.mut{color:#5a6678;font-size:12.5px}
+.stages{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}
+.st{flex:1;min-width:84px;padding:8px 6px;text-align:center;border-radius:6px;background:#e8ecf4;color:#3d4a5e;font-size:12px}
+.st.done{background:#cfeedd;color:#14532d}.st.cur{background:#2f5bd8;color:#fff;font-weight:600}
+.tabs{display:flex;gap:4px;border-bottom:1px solid #d3dae6;margin:18px 0;overflow-x:auto}
+.tab{padding:11px 16px;color:#3d4a5e;text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent}
+.tab.on{color:#2f5bd8;font-weight:600;border-color:#2f5bd8}
+.grid{display:grid;gap:16px;grid-template-columns:2fr 1fr}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #eef1f6}
+.row:last-child{border-bottom:0}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:99px;font-weight:600;white-space:nowrap}
+.g{background:#cfeedd;color:#14532d}.a{background:#fde7bd;color:#7a4300}.b{background:#dbe6ff;color:#1c3d94}
+.av{display:inline-block;width:26px;height:26px;border-radius:50%;background:#2f4a8a;color:#fff;font-size:11px;text-align:center;line-height:26px;margin-right:6px}
+.btn{background:#2f5bd8;color:#fff;border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:600;min-height:44px}
+.btn2{background:#fff;color:#1b2430;border:1px solid #c9d2e0;border-radius:8px;padding:11px 16px;font:inherit;min-height:44px}
+.bar{height:8px;background:#e8ecf4;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:#2f5bd8}
+.col{display:flex;flex-direction:column;gap:16px}
+@media (max-width:900px){.side{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+<h2>DevTrack</h2>
+<a class="nav" href="#">Dashboard</a><a class="nav on" href="#">Projects</a><a class="nav" href="#">Tasks &amp; Sprints</a><a class="nav" href="#">Timeline</a><a class="nav" href="#">Milestones &amp; Goals</a><a class="nav" href="#">Documents</a><a class="nav" href="#">Calls &amp; Recordings</a><a class="nav" href="#">Admin</a>
+</aside>
+<div class="main">
+<div class="mut">Projects / Customer Portal Revamp</div>
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:4px">
+<div><h1>Customer Portal Revamp</h1><div class="mut">Client: Acme Retail · 12 Oct 2026 to 28 Feb 2027 · High priority</div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn2" type="button">Edit project</button><button class="btn2" type="button">Schedule call</button><button class="btn" type="button">Move to Testing</button></div>
+</div>
+<div class="stages"><div class="st done">Planning</div><div class="st done">Design</div><div class="st cur">Development</div><div class="st">Testing</div><div class="st">UAT</div><div class="st">Deployment</div></div>
+
+<div class="tabs"><a class="tab on" href="#">Overview</a><a class="tab" href="#">Tasks</a><a class="tab" href="#">Timeline</a><a class="tab" href="#">Documents</a><a class="tab" href="#">Calls &amp; Recordings</a><a class="tab" href="#">Team</a><a class="tab" href="#">Activity</a></div>
+
+<div class="grid">
+<div class="col">
+<div class="card"><h3>About</h3>
+<p style="margin:0 0 12px;line-height:1.5">Rebuild the customer portal with new login, order tracking and support modules. Goal: cut support tickets by 30% and keep page load under 2 seconds.</p>
+<div class="row"><span class="mut">Overall progress</span><span style="width:55%"><div class="bar"><i style="width:52%"></i></div></span><b>52%</b></div>
+<div class="row"><span class="mut">Tasks</span><span>64 total · 33 done · 9 in progress · 22 to do</span></div>
+<div class="row"><span class="mut">Open bugs</span><span>7 (2 high)</span></div>
+<div class="row"><span class="mut">Budget used</span><span>INR 11,20,000 of 25,00,000</span></div></div>
+
+<div class="card"><h3>Milestones</h3>
+<div class="row"><span>Design sign-off</span><span class="mut">20 Dec</span><span class="pill g">Done</span></div>
+<div class="row"><span>Core modules complete</span><span class="mut">15 Dec</span><span class="pill a">At risk</span></div>
+<div class="row"><span>Beta release</span><span class="mut">20 Jan</span><span class="pill b">Upcoming</span></div>
+<div class="row"><span>Go-live</span><span class="mut">28 Feb</span><span class="pill b">Upcoming</span></div></div>
+
+<div class="card"><h3>Recent activity</h3>
+<div class="row"><span>Arjun K moved "Login module" to In Review</span><span class="mut">2h ago</span></div>
+<div class="row"><span>Riya Sharma uploaded SRS_v2.pdf</span><span class="mut">Yesterday</span></div>
+<div class="row"><span>Sprint 3 retro recording added</span><span class="mut">18 Nov</span></div></div>
+</div>
+
+<div class="col">
+<div class="card"><h3>Team</h3>
+<div class="row"><span><span class="av">RS</span>Riya Sharma</span><span class="mut">Manager</span></div>
+<div class="row"><span><span class="av">AK</span>Arjun K</span><span class="mut">Developer</span></div>
+<div class="row"><span><span class="av">MP</span>Meera P</span><span class="mut">Developer</span></div>
+<div class="row"><span><span class="av">SJ</span>Sanjay J</span><span class="mut">Developer</span></div>
+<div class="row"><span><span class="av">NV</span>Nikhil V</span><span class="mut">Tester</span></div>
+<div class="row"><span><span class="av">TD</span>Tanvi D</span><span class="mut">Tester</span></div></div>
+<div class="card"><h3>Upcoming</h3>
+<div class="row"><span>Sprint 4 review call</span><span class="pill b">24 Nov, 11:00</span></div>
+<div class="row"><span>SRS v2 client approval</span><span class="pill a">Pending</span></div></div>
+<div class="card"><h3>Latest documents</h3>
+<div class="row"><span>SRS_v2.pdf</span><span class="mut">Requirements</span></div>
+<div class="row"><span>API_Spec.md</span><span class="mut">Development</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1100}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

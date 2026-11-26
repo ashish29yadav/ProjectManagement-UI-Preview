@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create New Project</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.app{display:flex;min-height:1000px;font-family:Inter,Arial,sans-serif;color:#1b2430;background:#f4f6fa;font-size:14px}
+.side{width:236px;background:#14213d;color:#d9e1f2;padding:20px 14px;box-sizing:border-box;flex-shrink:0}
+.side h2{margin:0 8px 24px;font-size:18px;color:#fff}
+.nav{display:block;padding:10px 12px;border-radius:8px;color:#d9e1f2;text-decoration:none;margin-bottom:2px}
+.nav.on{background:#2f4a8a;color:#fff;font-weight:600}
+.main{flex:1;min-width:0;padding:24px 28px;max-width:980px}
+h1{margin:0 0 4px;font-size:22px}
+.card{background:#fff;border:1px solid #e1e6ef;border-radius:12px;padding:20px;margin-top:16px}
+.card h3{margin:0 0 14px;font-size:15px}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.f label{display:block;font-size:12.5px;font-weight:600;color:#3d4a5e;margin-bottom:5px}
+.f input,.f select,.f textarea{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #c9d2e0;border-radius:8px;font:inherit;background:#fff;min-height:44px}
+.wide{grid-column:1/-1}
+.mut{color:#5a6678;font-size:12.5px}
+.btn{background:#2f5bd8;color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;min-height:44px}
+.btn2{background:#fff;color:#1b2430;border:1px solid #c9d2e0;border-radius:8px;padding:11px 18px;font:inherit;min-height:44px}
+.chk{display:flex;align-items:center;gap:8px;padding:6px 0}
+.chk input{width:18px;height:18px}
+.drop{border:2px dashed #c9d2e0;border-radius:10px;padding:22px;text-align:center;color:#5a6678}
+@media (max-width:900px){.side{display:none}}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+<h2>DevTrack</h2>
+<a class="nav" href="#">Dashboard</a><a class="nav on" href="#">Projects</a><a class="nav" href="#">Tasks &amp; Sprints</a><a class="nav" href="#">Timeline</a><a class="nav" href="#">Milestones &amp; Goals</a><a class="nav" href="#">Documents</a><a class="nav" href="#">Calls &amp; Recordings</a><a class="nav" href="#">Admin</a>
+</aside>
+<div class="main">
+<div class="mut">Projects / New</div>
+<h1>Create New Project</h1>
+<div class="mut">Fill in the details below. You can edit everything later.</div>
+
+<div class="card"><h3>1. Basic information</h3>
+<div class="f">
+<div><label for="n">Project name</label><input id="n" value="Customer Portal Revamp"></div>
+<div><label for="c">Client</label><input id="c" value="Acme Retail"></div>
+<div><label for="t">Project type</label><select id="t"><option>Web application</option><option>Mobile app</option><option>API / Integration</option><option>Maintenance</option></select></div>
+<div><label for="p">Priority</label><select id="p"><option>High</option><option>Medium</option><option>Low</option></select></div>
+<div class="wide"><label for="d">Description</label><textarea id="d" rows="3">Rebuild the customer portal with new login, order tracking and support modules.</textarea></div>
+</div></div>
+
+<div class="card"><h3>2. Timeline and stages</h3>
+<div class="f">
+<div><label for="s">Start date</label><input id="s" type="date" value="2026-12-01"></div>
+<div><label for="e">Target end date</label><input id="e" type="date" value="2027-03-31"></div>
+<div><label for="tp">Stage template</label><select id="tp"><option>Standard: Planning, Design, Development, Testing, UAT, Deployment</option><option>Agile sprints</option><option>Custom</option></select></div>
+<div><label for="b">Budget</label><input id="b" value="INR 25,00,000"></div>
+</div></div>
+
+<div class="card"><h3>3. Team</h3>
+<div class="f">
+<div><label for="m">Project manager</label><select id="m"><option>Riya Sharma</option><option>Karan Mehta</option><option>Neha Joshi</option></select></div>
+<div><label for="dv">Developers</label><input id="dv" value="Arjun K, Meera P, Sanjay J"></div>
+<div><label for="ts">Testers</label><input id="ts" value="Nikhil V, Tanvi D"></div>
+</div></div>
+
+<div class="card"><h3>4. Goals and first milestone</h3>
+<div class="f">
+<div class="wide"><label for="g">Project goal</label><input id="g" value="Reduce support tickets by 30% and page load under 2 seconds"></div>
+<div><label for="mn">First milestone</label><input id="mn" value="Design sign-off"></div>
+<div><label for="md">Milestone date</label><input id="md" type="date" value="2026-12-20"></div>
+</div></div>
+
+<div class="card"><h3>5. Documents and notifications</h3>
+<div class="drop">Drag files here or choose files (SRS, contracts, wireframes)</div>
+<div style="margin-top:12px">
+<div class="chk"><input type="checkbox" id="x1" checked=""><label for="x1">Email team when a stage changes</label></div>
+<div class="chk"><input type="checkbox" id="x2" checked=""><label for="x2">Remind assignees 2 days before due date</label></div>
+<div class="chk"><input type="checkbox" id="x3"><label for="x3">Weekly progress summary to client</label></div>
+</div></div>
+
+<div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap">
+<button class="btn2" type="button">Cancel</button><button class="btn2" type="button">Save as draft</button><button class="btn" type="button">Create project</button>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1100}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
